@@ -187,7 +187,7 @@
   var deactivateForm = function () {
     adForm.reset();
     adFormFieldsets.forEach(function (it) {
-        it.disabled = true;
+      it.disabled = true;
     });
     adFormHeader.disabled = true;
     adForm.classList.add('ad-form--disabled');

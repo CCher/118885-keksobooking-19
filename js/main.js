@@ -108,7 +108,7 @@
       featureItem.className = 'popup__feature popup__feature--' + it;
       featureFragment.appendChild(featureItem);
     });
-      return featureFragment;
+    return featureFragment;
   };
 
   var createPhotosFragment = function (adData) {
