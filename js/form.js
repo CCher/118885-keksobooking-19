@@ -9,10 +9,10 @@
   };
 
   var BuildingMinPrice = {
-    BUNGALO: 0,
-    FLAT: 1000,
-    HOUSE: 5000,
-    PALACE: 10000
+    Bungalo: 0,
+    Flat: 1000,
+    House: 5000,
+    Palace: 10000
   };
 
   var adForm = document.querySelector('.ad-form');
@@ -20,6 +20,7 @@
   var adFormHeader = document.querySelector('.ad-form-header');
   var addressInput = document.querySelector('#address');
   var success = document.querySelector('.success');
+  var error = document.querySelector('.error');
   var titleInput = document.querySelector('#title');
   var typeInput = document.querySelector('#type');
   var priceInput = document.querySelector('#price');
@@ -128,8 +129,31 @@
     window.filter.deactivate();
   };
 
-  var onSubmitError = function (errorMessage) {
-    window.utils.renderErrorMessage(errorMessage);
+  var onErrorEscDown = function (evt) {
+    window.utils.onEscDown(evt, closeError);
+  };
+
+  var onErrorClick = function () {
+    closeError();
+  };
+
+  var closeError = function () {
+    error.classList.add('hidden');
+    document.removeEventListener('keydown', onErrorEscDown);
+    error.removeEventListener('click', onErrorClick);
+  };
+
+  var showError = function () {
+    error.classList.remove('hidden');
+    document.addEventListener('keydown', onErrorEscDown);
+    error.addEventListener('click', onErrorClick);
+  };
+
+  var onSubmitError = function () {
+    showError();
+    deactivateForm();
+    window.map.deactivate();
+    window.filter.deactivate();
   };
 
   var onAdFormSubmit = function (evt) {

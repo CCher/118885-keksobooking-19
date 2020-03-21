@@ -22,10 +22,10 @@
   };
 
   var typesMap = {
-    PALACE: 'Дворец',
-    FLAT: 'Квартира',
-    HOUSE: 'Дом',
-    BUNGALO: 'Бунгало'
+    Palace: 'Дворец',
+    Flat: 'Квартира',
+    House: 'Дом',
+    Bungalo: 'Бунгало'
   };
 
   var template = document.querySelector('template');

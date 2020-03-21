@@ -28,12 +28,12 @@
   var data = [];
   var filteredData = [];
 
-  var filtrationItem = function (it, item, key) {
+  var filterItem = function (it, item, key) {
     return it.value === 'any' ? true : it.value === item[key].toString();
   };
 
   var filtrationByType = function (item) {
-    return filtrationItem(typeSelect, item.offer, 'type');
+    return filterItem(typeSelect, item.offer, 'type');
   };
 
   var filtrationByPrice = function (item) {
@@ -42,11 +42,11 @@
   };
 
   var filtrationByRooms = function (item) {
-    return filtrationItem(roomsSelect, item.offer, 'rooms');
+    return filterItem(roomsSelect, item.offer, 'rooms');
   };
 
   var filtrationByGuests = function (item) {
-    return filtrationItem(guestsSelect, item.offer, 'guests');
+    return filterItem(guestsSelect, item.offer, 'guests');
   };
 
   var filtrationByFeatures = function (item) {

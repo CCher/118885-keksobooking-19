@@ -2,7 +2,7 @@
 
 (function () {
   var ESC_KEYCODE = 27;
-  var DEBOUNCE_INTERVAL = 300;
+  var DEBOUNCE_INTERVAL = 500;
 
   var onEscDown = function (evt, func) {
     if (evt.keyCode === ESC_KEYCODE) {
@@ -32,7 +32,7 @@
 
   window.utils = {
     onEscDown: onEscDown,
-    renderErrorMessage: renderErrorMessage,
+//    renderErrorMessage: renderErrorMessage,
     debounce: debounce
   };
 })();
