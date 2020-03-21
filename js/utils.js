@@ -10,13 +10,6 @@
     }
   };
 
-  var renderErrorMessage = function (errorMessage) {
-    var message = document.createElement('div');
-    message.classList.add('error-message');
-    message.textContent = errorMessage;
-    document.body.insertAdjacentElement('afterbegin', message);
-  };
-
   var debounce = function (fun) {
     var lastTimeout = null;
     return function () {
@@ -32,7 +25,6 @@
 
   window.utils = {
     onEscDown: onEscDown,
-//    renderErrorMessage: renderErrorMessage,
     debounce: debounce
   };
 })();
