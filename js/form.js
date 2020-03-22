@@ -9,10 +9,10 @@
   };
 
   var BuildingMinPrice = {
-    Bungalo: 0,
-    Flat: 1000,
-    House: 5000,
-    Palace: 10000
+    BUNGALO: 0,
+    FLAT: 1000,
+    HOUSE: 5000,
+    PALACE: 10000
   };
 
   var adForm = document.querySelector('.ad-form');

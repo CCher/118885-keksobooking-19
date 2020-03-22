@@ -3,7 +3,7 @@
 (function () {
   var PINS_LIMIT = 5;
 
-  var priceRange = {
+  var PriceRange = {
     LOW: {
       MIN: 0,
       MAX: 10000
@@ -32,24 +32,24 @@
     return it.value === 'any' ? true : it.value === item[key].toString();
   };
 
-  var filtrationByType = function (item) {
+  var filterByType = function (item) {
     return filterItem(typeSelect, item.offer, 'type');
   };
 
-  var filtrationByPrice = function (item) {
-    var filteringPrice = priceRange[priceSelect.value.toUpperCase()];
+  var filterByPrice = function (item) {
+    var filteringPrice = PriceRange[priceSelect.value.toUpperCase()];
     return filteringPrice ? item.offer.price >= filteringPrice.MIN && item.offer.price <= filteringPrice.MAX : true;
   };
 
-  var filtrationByRooms = function (item) {
+  var filterByRooms = function (item) {
     return filterItem(roomsSelect, item.offer, 'rooms');
   };
 
-  var filtrationByGuests = function (item) {
+  var filterByGuests = function (item) {
     return filterItem(guestsSelect, item.offer, 'guests');
   };
 
-  var filtrationByFeatures = function (item) {
+  var filterByFeatures = function (item) {
     var checkedFeaturesItems = featuresFieldset.querySelectorAll('input:checked');
     return Array.from(checkedFeaturesItems).every(function (element) {
       return item.offer.features.includes(element.value);
@@ -58,7 +58,7 @@
 
   var onFilterChange = window.utils.debounce(function () {
     filteredData = data.slice(0);
-    filteredData = filteredData.filter(filtrationByType).filter(filtrationByPrice).filter(filtrationByRooms).filter(filtrationByGuests).filter(filtrationByFeatures);
+    filteredData = filteredData.filter(filterByType).filter(filterByPrice).filter(filterByRooms).filter(filterByGuests).filter(filterByFeatures);
     window.map.removePins();
     window.map.removeMapCard();
     window.map.renderPinsMarkup(filteredData.slice(0, PINS_LIMIT));
